@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make Payment Request</title>
+
+    <style>
+        body {
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+            background-attachment: fixed; /* Fix the background image so it doesn't scroll with the content */
+            overflow-x: hidden;
+            color: darkblue;
+            padding: 0px;
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+            font-weight: bold;
+        }
+
+
+        .header {
+            position: fixed;
+            top: 0; /* Align the header to the top of the viewport */
+            width: 100%; /* Make the header span the full width of the viewport */
+            z-index: 1000; /* Ensure the header appears above other elements */
+            /* Your existing header styles */
+            background-color: darkblue;
+            font-family: 'Dancing Script', cursive;
+            color: white;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0; /* Align the header to the top of the viewport */
+            width: 100%; /* Make the header span the full width of the viewport */
+            z-index: 1000;
+            background-color: darkblue;
+            color: white;
+            padding: 0px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header a {
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            text-decoration: none;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        .header a:hover {
+            color: blue;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: darkblue;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: blue; /* Change background color on hover for better visual feedback */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .body {
+            margin-top: 100px;
+            display: flex;
+            align-items: center; /* Align items vertically */
+        }
+
+        .body img {
+            max-width: 50%;
+            height: auto;
+            margin-left: 20px; /* Adjust margin as needed */
+            align-self: flex-start; /* Align the image to the top of its container */
+            border-radius: 50%; /* Make the image appear in an oval shape */
+        }
+
+
+        .btn {
+            padding: 10px 20px;
+            background-color: darkblue;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: blue;
+        }
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+            max-width: 400px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px darkblue;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px darkblue;
+        }
+    </style>
+    
+</head>
+<body>
+
+<div class="header">
+    <h1 style="text-align:left; color: white;margin-left: 30px">WisePay</h1>
+    <img src="https://wallpapercave.com/wp/wp8179677.jpg" alt="Introduction Image" style ="width:5%; margin-left: 0px; margin-top: 20px;margin-bottom: 0; margin-right: 0px; border-radius: 50%;">
+    <div class="user-info">
+        <p style="color:white; margin-right: 28px">Hello {{ request.user.username }}</p>
+        <a href="{% url 'payapp:logout_view' %}" class="btn">Sign Out</a>
+    </div>
+</div>
+
+<h2 style="text-align: center; margin-top:130px">Payment Request</h2>
+<h3 style="text-align: center; margin-top:40px">Receiver Username: {{ receiver_username }}</h3>
+<h3 style="text-align: center; margin-top:20px">Amount: {{ amount }}</h3>
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<form method="post" action="{% url 'financial:make_payment_request' receiver_username=receiver_username amount=amount %}" style="margin-top:60px;">
+    {% csrf_token %}
+    <button type="submit" class="btn" style="font-family: 'Dancing Script', cursive;font-weight: bold;">Send Money</button>
+    <a href="{% url 'payapp:payapp_home' %}" class="btn" style ="margin-left: 3%; margin-top:10%;">Back</a>
+</form>
+
+
+
+<div class="footer" style ="padding:0px;height: 30px;">
+    <p>&copy; 2024 WebApp2024. All rights reserved.</p>
+</div>
+
+</body>
+</html>
+

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+            background-attachment: fixed; /* Fix the background image so it doesn't scroll with the content */
+            overflow-x: hidden;
+            color: darkblue;
+            padding: 0px;
+            margin: 0;
+            font-family: 'Dancing Script', cursive;
+        }
+
+
+        .header {
+            position: fixed; 
+            top: 0; /* Align the header to the top of the viewport */
+            width: 100%; /* Make the header span the full width of the viewport */
+            z-index: 1000; /* Ensure the header appears above other elements */
+            /* Your existing header styles */
+            background-color: darkblue;
+            font-family: 'Dancing Script', cursive;
+            color: #c0c0c0;
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0; /* Align the header to the top of the viewport */
+            width: 100%; /* Make the header span the full width of the viewport */
+            z-index: 1000;
+            background-color: darkblue;
+            color: #c0c0c0;
+            padding: 0px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header a {
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            text-decoration: none;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        .header a:hover {
+            color: blue;
+        }
+        
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 10vh;
+            padding: 10px;
+        }
+
+        .box {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            background-color: black;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 0; 
+        }
+
+        .box:hover {
+            background-color: lightslategrey;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .body {
+            margin-top: 100px;
+            display: flex;
+            align-items: center; /* Align items vertically */
+        }
+
+        .body img {
+            max-width: 50%;
+            height: auto;
+            margin-left: 20px; /* Adjust margin as needed */
+            align-self: flex-start; /* Align the image to the top of its container */
+            border-radius: 50%; /* Make the image appear in an oval shape */
+        }
+
+        .welcome {
+            flex: 1;
+            padding-right: 20px; /* Add padding to separate from image */
+        }
+
+        .welcome-text {
+            color: blue;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .phone-image {
+            width: 50%; /* Adjust the width as needed */
+            height: auto;
+             /* Make the image appear in an oval shape */
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: darkblue;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: lightslategrey;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        .box:hover{
+            transform : scale(0.3);
+            z-index: 1;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="header" style="20px">
+    <h1 style="text-align:left; color: white;margin-left: 30px">WisePay</h1>
+    <div >
+        <h4 style="color: white; margin-left: 1500%">Help</h4>
+        <div class="dropdown-content">
+            <a href="#registration">How to Register</a>
+            <a href="#login">How to Log In</a>
+            <a href="#sendmoney">How to Send Money</a>
+            <a href="#transactions">How to Check Transactions</a>
+            <a href="#balance">How to Know the Balance</a>
+        </div>
+    </div>
+    <h4><a href="{% url 'register:signup' %}" style =" margin-left:40%">SignUp</a></h4>
+    <h4><a href="{% url 'register:signin' %}">LogIn</a></h4>
+</div>
+
+
+<div class="body">
+    <div class="welcome" style = "margin-top: 100px;">
+        <h2 style = "margin-left: 50px">Welcome to WisePay!!</h2>
+        <h4 style = "margin-left: 50px">Empowering You to Control Your Finances</h4>
+        
+    </div>
+    <img src="https://wallpapercave.com/wp/wp8179677.jpg" class="box" alt="Introduction Image" style ="margin-top: 50px;margin-bottom: 10px;margin-right:10px; border-width:20px; border-color:darkblue;">
+</div>
+
+
+<div class="container" style="font-family:'Times New Roman';display: flex; flex-direction: row; margin-top:35px; ">
+    <div class="box left-box" id="registration" style="background-color: darkblue;color: white; flex: 1; border-width: 45px; border-color: white;">
+        <li></li>
+        <li></li>
+        <h2 style="color: white">Unlock the Future of Banking with WisePay - Your Gateway to Financial Freedom!</h2>
+        <li></li>
+        <li></li>
+    </div>
+    <div class="box right-box" id="registration" style="background-color: white;  flex: 1;border-width: 25px; border-color: darkblue;">
+        <ul style = "color:darkblue">
+            <li>At WisePay, we don't just offer banking services; we offer a lifestyle of financial empowerment and control.</li>
+            <li>-</li>
+            <li>Join us to revolutionize the way you manage your money - it's not just banking, it's a journey towards financial liberation!</li>
+            <li>-</li>
+            <li>With WisePay, say goodbye to traditional banking hassles and hello to a world of seamless, secure transactions at your fingertips!</li>
+        </ul>
+    </div>
+</div>
+
+<div class="container" style="font-family:'Calibri';display: flex; flex-direction: row; margin-top:155px; background-color: white;border-bottom-width: 200px; border-width:150px ">
+    <div class="box left-box" id="registration" style="background-color: darkblue;color: white; flex: 1; border-width: 45px; border-color: white;">
+        <h2 style="color: white">Future Banking Solutions</h2>
+        <h4 style="color: white">Secure, Swift, Simple - Your Financial Freedom Awaits</h4>
+    </div>
+    <div class="box middle-box" id="registration" style="background-color: white; flex: 1;border-width: 25px; border-color: darkblue;">
+            <h2 style="color: darkblue">Empowerment Control Finances</h2>
+            <h4 style="color: darkblue">Take Charge of Your Money Like Never Before</h4>
+        </div>
+        <div class="box left-box" id="registration" style="background-color: darkblue;color: white; flex: 1; border-width: 45px; border-color: white;">
+            <h2 style="color: white">Innovative Financial</h2>
+            <h4 style="color: white">Revolutionizing the Way You Bank and Transact</h4>
+        </div>
+</div>
+
+<div class="container" style="font-family:'Calibri';display: flex; flex-direction: row; margin-top:155px; margin-bottom:155px; background-color: white;border-bottom-width: 200px; border-width:150px ">
+    <div class="box left-box" id="registration" style="background-color: darkblue;color: white; flex: 1; border-width: 45px; border-color: white;">
+        <li ></li>
+        <li></li>
+        <li></li>
+        <h2 style="color: white; text-align: left">Secure</h2>
+        <h2 style="color: white; text-align: left">Handling</h2>
+        <h2 style="color: white; text-align: left">Yields</h2>
+        <h2 style="color: white; text-align: left">Advanced</h2>
+        <h2 style="color: white; text-align: left">Money</h2>
+        <h2 style="color: white; text-align: left">Services</h2>
+        <li></li>
+        <li></li>
+        <li></li>
+    </div>
+
+    <div class="container" style="font-family:'Calibri';display: flex; flex-direction: column; margin-top:55px; background-color: white;border-bottom-width: 200px; border-width:150px ">
+        <div class="box left-box" id="registration" style="background-color: darkblue; flex: 1; border-width: 25px; border-color: white;">
+            <h2 style="color: white">Innovative Financial</h2>
+            <h4 style="color: white">Revolutionizing the Way You Bank and Transact</h4>
+        </div>
+
+        <div class="box middle-box" id="registration" style="background-color: white; flex: 1;border-width: 25px; border-color: darkblue;">
+            <h2 style="color: darkblue">Empowerment Control Finances</h2>
+            <h4 style="color: darkblue">Take Charge of Your Money Like Never Before</h4>
+        </div>
+
+    </div>
+    
+    <div class="container" style="font-family:'Calibri';display: flex; flex-direction: column; margin-top:55px; background-color: white;border-bottom-width: 200px; border-width:150px ">
+    <div class="box middle-box" id="registration" style="background-color: white; flex: 1;border-width: 25px; border-color: darkblue;">
+        <h2 style="color: darkblue">Empowerment Control Finances</h2>
+        <h4 style="color: darkblue">Take Charge of Your Money Like Never Before</h4>
+    </div>
+    <div class="box left-box" id="registration" style="background-color: darkblue;color: white; flex: 1; border-width: 25px; border-color: white;">
+        <h2 style="color: white">Innovative Financial</h2>
+        <h4 style="color: white">Revolutionizing the Way You Bank and Transact</h4>
+    </div>
+    </div>
+
+    <div class="container" style="font-family:'Calibri';display: flex; flex-direction: column; margin-top:55px; background-color: white;border-bottom-width: 200px; border-width:150px ">
+        <div class="box left-box" id="registration" style="background-color: darkblue; flex: 1; border-width: 25px; border-color: white;">
+            <h2 style="color: white">Innovative Financial</h2>
+            <h4 style="color: white">Revolutionizing the Way You Bank and Transact</h4>
+        </div>
+        
+        <div class="box middle-box" id="registration" style="background-color: white; flex: 1;border-width: 25px; border-color: darkblue;">
+            <h2 style="color: darkblue">Empowerment Control Finances</h2>
+            <h4 style="color: darkblue">Take Charge of Your Money Like Never Before</h4>
+        </div>
+        
+    </div>
+
+    <div class="container" style="font-family:'Calibri';display: flex; flex-direction: column; margin-top:55px; background-color: white;border-bottom-width: 200px; border-width:150px ">
+        <div class="box middle-box" id="registration" style="background-color: white; flex: 1;border-width: 25px; border-color: darkblue;">
+            <h2 style="color: darkblue">Empowerment Control Finances</h2>
+            <h4 style="color: darkblue">Take Charge of Your Money Like Never Before</h4>
+        </div>
+        <div class="box left-box" id="registration" style="background-color: darkblue;color: white; flex: 1; border-width: 25px; border-color: white;">
+            <h2 style="color: white">Innovative Financial</h2>
+            <h4 style="color: white">Revolutionizing the Way You Bank and Transact</h4>
+        </div>
+    </div>
+</div>
+
+
+<div class="footer" style ="padding:0px;height: 25px;">
+    <p>&copy; 2024 WebApp2024. All rights reserved.</p>
+</div>
+
+</body>
+</html>
