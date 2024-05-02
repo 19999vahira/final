@@ -1,4 +1,4 @@
-
+'''
 from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
@@ -17,5 +17,5 @@ def get_timestamp():
     finally:
         transport.close()
 
-print("Timestamp from server:", get_timestamp())
+print("Timestamp from server:", get_timestamp())'''
 
