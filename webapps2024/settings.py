@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cbsw#22w(eiak@qbl$kr1@lw6p%(1q0zn&l^13x!z(b!4zu%b9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -141,15 +141,5 @@ USD_TO_GBP_RATE = 0.71  # 1 Dollar = 0.71 Pounds
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
-
-'''import os
-
-# Define the base directory of your Django project
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-# Define STATICFILES_DIRS to include the directory containing your Thrift files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'thrift_final'),
-]'''
 
 
