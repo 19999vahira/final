@@ -1,4 +1,4 @@
-from thrift.transport import TSocket
+'''from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 from thrift.server import TServer
@@ -20,6 +20,6 @@ server = TServer.TSimpleServer(processor, transport, tfactory, pfactory)
 
 print("Starting the server...")
 server.serve()
-print("Server stopped.")
+print("Server stopped.")'''
 
 
