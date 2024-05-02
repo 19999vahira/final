@@ -4,7 +4,7 @@ from register.models import Account, Transaction, PaymentRequest
 from decimal import Decimal
 from django.contrib.auth.models import User
 from django.utils import timezone
-from thrift_final.client import get_timestamp
+#from thrift_final.client import get_timestamp
 from django.contrib import messages
 from django.db import transaction
 import random
@@ -36,7 +36,7 @@ def make_payment(request):
                     receiver_account.save()
 
                     # Call the function to get the current timestamp
-                    timestamp = get_timestamp()
+                    timestamp = timezone.now()
 
                     Transaction.objects.create(sender=request.user, receiver=receiver, amount=amount, timestamp=timestamp)
 
@@ -91,7 +91,7 @@ def add_money(request):
                         account.balance += amount
                         account.save()
 
-                        timestamp = get_timestamp()
+                        timestamp = timezone.now()
                         Transaction.objects.create(receiver=request.user, amount=amount, timestamp=timestamp, transaction_type='DEPOSIT')
 
                         messages.success(request, 'Money added successfully!')
